@@ -163,25 +163,30 @@
       } else {
         console.log("slide length and dots length doesn't match !!!!!");
       }
-      this.next.addEventListener("click", () => {
+      this.next &&
+      this.next.addEventListener('click', () => {
         this.slideDOWN(this.activeSlide);
       });
-      this.prev.addEventListener("click", () => {
+    this.prev &&
+      this.prev.addEventListener('click', () => {
         this.slideUP(this.activeSlide);
       });
+    this.scrollToggler &&
       this.scrollToggler.forEach((element) => {
-        element.addEventListener("click", () => {
+        element.addEventListener('click', () => {
           this.toggleScroll();
         });
       });
+    this.scrollON &&
       this.scrollON.forEach((element) => {
-        element.addEventListener("click", () => {
+        element.addEventListener('click', () => {
           this.enableScroll();
           this.toggleState = true;
         });
       });
+    this.scrollOFF &&
       this.scrollOFF.forEach((element) => {
-        element.addEventListener("click", () => {
+        element.addEventListener('click', () => {
           this.disableScroll();
           this.toggleState = false;
         });
