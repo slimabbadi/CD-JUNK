@@ -208,26 +208,27 @@
       this.activeSlide = 0;
       this.addClassToDots(this.activeSlide);
     }
-    /**
-     * Enables scrolling
-     */
-    enableScroll() {
-      window.removeEventListener("DOMMouseScroll", this.preventDefault, false);
-      window.removeEventListener("wheel", this.preventDefault, this.wheelOpt);
-      window.removeEventListener("touchmove", this.preventDefault, this.wheelOpt);
-      window.removeEventListener("keydown", this.preventDefaultForScrollKeys, false);
-      console.log("enable");
-    }
-    /**
-     * Disables scrolling
-     */
-    disableScroll() {
-      window.addEventListener("DOMMouseScroll", this.preventDefault, false);
-      window.addEventListener("wheel", this.preventDefault, this.wheelOpt);
-      window.addEventListener("touchmove", this.preventDefault, this.wheelOpt);
-      window.addEventListener("keydown", this.preventDefaultForScrollKeys, false);
-      console.log("disable");
-    }
+  /**
+   * Enables scrolling
+   */
+  enableScroll() {
+    window.removeEventListener('DOMMouseScroll', this.preventDefault, { passive: false });
+    window.removeEventListener('wheel', this.preventDefault, { passive: false });
+    window.removeEventListener('touchmove', this.preventDefault, { passive: false });
+    window.removeEventListener('keydown', this.preventDefaultForScrollKeys, { passive: false });
+    console.log('enable');
+  }
+
+  /**
+   * Disables scrolling
+   */
+  disableScroll() {
+    window.addEventListener('DOMMouseScroll', this.preventDefault, { passive: false });
+    window.addEventListener('wheel', this.preventDefault, { passive: false });
+    window.addEventListener('touchmove', this.preventDefault, { passive: false });
+    window.addEventListener('keydown', this.preventDefaultForScrollKeys, { passive: false });
+    console.log('disable');
+  }
     /**
      * Toggles scrolling
      */
